@@ -1,0 +1,38 @@
+*Edit Text :
+
+Ctrl+D				Delete Line
+Alt+Arrow Up/Arrow Down		Move current line or selection up or down
+Shift+Ctrl+Y			Change selection to all lower case
+Shift+Ctrl+X			Change selection to all upper case
+..............................................................................................................................................................
+*Indentions and Comments :
+
+Ctrl+I				Correct indention of selected text or of current line
+Ctrl+Shift+F			Autoformat all code in Editor using code formatter
+Ctrl+/				Comment / uncomment line or selection ( adds '//' )
+Ctrl+Shift+/			Add Block Comment around selection ( adds '/... */' )
+Ctrl+Shift+\			Remove Block Comment
+Alt+Shift+J			Add Element Comment ( adds '/** ... */')
+..............................................................................................................................................................
+*Editing Source Code :
+
+Ctrl+Space			Opens Content Assist (e.g. show available methods or field names)
+Alt+/				Propose word completion (after typing at least one letter). Repeatedly press alt+/ until reaching correct name
+..............................................................................................................................................................
+*Code Information :
+
+F2				Open class, method, or variable information (tooltip text)
+F3				Open Declaration: Jump to Declaration of selected class, method, or parameter
+F4				Open Type Hierarchy window for selected item
+Ctrl+Alt+H			Open Call Hierarchy
+Ctrl+Shift+U			Find occurrences of expression in current file
+Ctrl+move over method		Open Declaration or Implementation
+..............................................................................................................................................................
+*Refactoring :
+
+Alt+Shift+R			Rename selected element and all references
+Alt+Shift+V			Move selected element to other class or file (With complete method or class selected)
+Alt+Shift+C			Change method signature (with method name selected)
+Alt+Shift+M			Extract selection to method
+Alt+Shift+L			Extract local variable: Create and assigns a variable from a selected expression
+Alt+Shift+I			Inline selected local variables, methods, or constants if possible (replaces variable with its declarations/ assignment and puts it directly into the statements)
