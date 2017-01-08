@@ -115,9 +115,10 @@ public class ReportGui extends JFrame {
 		springLayout.putConstraint(SpringLayout.SOUTH, btnBack_1, -10, SpringLayout.SOUTH, getContentPane());
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			setVisible(false);	
-			LibraryManagerGUI.main(null);
-			
+				setVisible(false);
+				frame=LibraryManagerGUI.getInstance();
+				frame.setBounds(100, 100, 450, 300);
+				frame.setVisible(true);
 				
 			}
 		});

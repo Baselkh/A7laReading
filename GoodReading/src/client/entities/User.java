@@ -8,6 +8,7 @@ public class User extends Person {
 	
 	private String userName;
 	private String password;
+	private int userType;
 
 	/**
 	 * @param userName
@@ -53,6 +54,14 @@ public class User extends Person {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getUserType() {
+		return userType;
+	}
+
+	public void setUserType(int userType) {
+		this.userType = userType;
 	}
 	
 	

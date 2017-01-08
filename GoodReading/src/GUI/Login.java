@@ -120,14 +120,52 @@ public class Login {
 		
 		btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+			//	if(((textFieldID.getText())!="") &&((passwordField.getText())!="") ){
+				
 				User user = new User(textFieldID.getText(), passwordField.getText());
 				LoginController login = (LoginController) Controllers
 						.getInstance().getController(ControllerType.LOGIN_CONTROLLER);
 				LoginResponse resp = login.checkLoginDetailsFromGUI(user);
+				
 				if(resp.getText().equals("OK"))
 				{
-				////login menu is here 
+				ClientUI.currUser=resp.getUser();
+				int type=ClientUI.currUser.getUserType();
+				
+				switch(type){
+				
+				case 1://user
+				{
+
+					
+					}
+				case 2://member
+				{
+
+					
+					}
+				case 3://Certified editor
+				{
+
+					
+					}
+				case 4://liberian
+				{
+
+					
+					}
+				
+				case 5://library manager
+				{
+
+					frame=LibraryManagerGUI.getInstance();
+					frame.setBounds(100, 100, 450, 300);
+					frame.setVisible(true);
+					}
+				}
 				
 					
 				}
@@ -139,6 +177,7 @@ public class Login {
 					frame.getContentPane().add(lblStatus);
 					
 				}
+				
 			}
 		});
 		
