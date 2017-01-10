@@ -1,12 +1,16 @@
 package GUI;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
@@ -14,8 +18,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import GUI.FolderElement;
 
 /**
  * @author Basel
@@ -27,6 +34,8 @@ public class CategoriesGUI extends JFrame {
 	private JButton deleteCategoryButton;
 	private JButton renameCategoryButton;
 	private BufferedImage folderIcon;
+	private ArrayList<String> categoriesName;
+	private MouseAdapter mouseClickListener;
 	
 	public CategoriesGUI(){
 		super("Categories");
@@ -39,9 +48,7 @@ public class CategoriesGUI extends JFrame {
 		renameCategoryButton= new JButton("Rename Category");
 		
 		// Adding buttons
-		JPanel buttonsPanel= new JPanel(new FlowLayout());
-//		buttonsPanel.setBounds(0, 0, getWidth(), 30);
-//		buttonsPanel.setBackground(Color.blue);
+		JPanel buttonsPanel= new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));	// Panel for containing buttons
 		buttonsPanel.add(createCategoryButton);
 		buttonsPanel.add(deleteCategoryButton);
 		buttonsPanel.add(renameCategoryButton);
@@ -49,12 +56,16 @@ public class CategoriesGUI extends JFrame {
 		
 		
 		// Categories icons layout
-		JPanel iconsPanel= new JPanel(new FlowLayout());
-		try{
+		JPanel iconsPanel= new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+		try{	// Initializing the pointer to the icon
 			folderIcon= ImageIO.read(new File("images\\folder_icon.png"));
 		}
-		catch(IOException e){}	////////////////
-		iconsPanel.add(makeFolderIcon("Test"));
+		catch(IOException e){}	///////Messing Code/////////
+		readCategoriesNames();	// Getting categories names
+		createFolderClickListener();
+		for(String s: categoriesName){
+			iconsPanel.add(makeFolderIcon(s));
+		}
 		pane.add(iconsPanel);
 		
 		// Displaying
@@ -62,20 +73,49 @@ public class CategoriesGUI extends JFrame {
 		setVisible(true);
 	}
 	
-	private JPanel makeFolderIcon(String categoryName){
-		JPanel panel= new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+	private FolderElement makeFolderIcon(String categoryName){
+		FolderElement folder= new FolderElement(categoryName, folderIcon);
 		
-		// Folder icon
-		JLabel iconLabel= new JLabel(new ImageIcon(folderIcon));
-		panel.add(iconLabel);
+		folder.addMouseListener(mouseClickListener);
+		return folder;
+	}
+	
+	private void readCategoriesNames(){
+		categoriesName= new ArrayList<String>();
+		categoriesName.add("aaaaaaaaaaaaa");
+		categoriesName.add("bbbbbbbbbbbbb");
+		categoriesName.add("ccccccccccccc");
+		categoriesName.add("ddddddddddddd");
+		categoriesName.add("eeeeeeeeeeeee");
+		categoriesName.add("fffffffffffff");
+		categoriesName.add("ggggggggggggg");
+		categoriesName.add("hhhhhhhhhhhhh");
+		categoriesName.add("iiiiiiiiiiiii");
+		categoriesName.add("jjjjjjjjjjjjj");
+		categoriesName.add("kkkkkkkkkkkkk");
 		
-		// Category name
-		JLabel nameLabel= new JLabel(categoryName, SwingConstants.RIGHT);
-		nameLabel.setBackground(Color.black);
-		panel.add(nameLabel);
-		
-		return panel;
+//		categoriesName.add("aaaaaaaaaaaaa");
+//		categoriesName.add("bbbbbbbbbbbbb");
+//		categoriesName.add("ccccccccccccc");
+//		categoriesName.add("ddddddddddddd");
+//		categoriesName.add("eeeeeeeeeeeee");
+//		categoriesName.add("fffffffffffff");
+//		categoriesName.add("ggggggggggggg");
+//		categoriesName.add("hhhhhhhhhhhhh");
+//		categoriesName.add("iiiiiiiiiiiii");
+//		categoriesName.add("jjjjjjjjjjjjj");
+//		categoriesName.add("kkkkkkkkkkkkk");
+	}
+	
+	private void createFolderClickListener(){
+		mouseClickListener= new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				String categoryName= ((FolderElement)e.getSource()).getName();
+				JOptionPane.showMessageDialog(null, categoryName+" is pressed");
+			}
+		};
 	}
 	
 	public static void main(String args[]){
