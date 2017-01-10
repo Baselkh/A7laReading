@@ -3,12 +3,11 @@ package protocol.response;
 import messages.Message;
 import messages.MessageType;
 
-public class ReportResponce implements Message {
+public class ReportBookResponse implements Message {
 
 	@Override
 	public MessageType getMessageType() {
-		// TODO Auto-generated method stub
-		return MessageType.REPORTS_RESPONSE;
+		return MessageType.REPORTS_Book_RESPONCE;
 	}
 
 }

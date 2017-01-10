@@ -17,11 +17,9 @@ public class ControllerFactory {
 			return new LoginController(client);
 		case LIBRARY_MANAGER_CONTROLLER:
 			return new LibraryManagerController(client);
+		case Report_CONTROLLER:
+			return new ReportsController(client);
 
-//		case LABREFFERAL_CONTROLLER:
-//			return new LabRefferalController(client);
-//		case REPORTS_CONTROLLER:
-//			return new ReportsController(client);
 		default:
 			System.out.println("ERROR: Invalid handler type");
 			return null;

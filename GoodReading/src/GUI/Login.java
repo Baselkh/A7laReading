@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -122,8 +123,18 @@ public class Login {
 		btnOk.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
-			//	if(((textFieldID.getText())!="") &&((passwordField.getText())!="") ){
+				
+				if (passwordField.getText().equals("")&&!(textFieldID.getText().equals("")))
+					JOptionPane.showMessageDialog(null," please enter your Password");
+				else{
+					if(textFieldID.getText().equals("")&&!(passwordField.getText().equals("")))
+						JOptionPane.showMessageDialog(null," please enter your ID");
+					else{
+						if(textFieldID.getText().equals("")&&passwordField.getText().equals("")){
+							JOptionPane.showMessageDialog(null," please enter your ID and your Password");
+						}
+					}
+					}
 				
 				User user = new User(textFieldID.getText(), passwordField.getText());
 				LoginController login = (LoginController) Controllers

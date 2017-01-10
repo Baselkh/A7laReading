@@ -31,7 +31,6 @@ public class ClientUI extends JFrame {
 	JTextArea notification;
 	public Client client;
 	public static User currUser;
-//	public static PatientCard currPatientCard;
 	public static String newPid;
 //	public static LaboratoryReferral currLaboratoryReferral;
 //	public static ArrayList<Portfolio> currPortfolios;
