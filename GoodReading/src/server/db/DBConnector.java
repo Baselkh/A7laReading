@@ -2,6 +2,7 @@ package server.db;
 
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,6 +12,18 @@ import client.entities.User;
 
 public class DBConnector {
 	public Connection connDB;
+	
+	public void connect(String dbName, String user, String pass)
+			throws Exception {
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			connDB = DriverManager.getConnection("jdbc:mysql://localhost/"
+					+ dbName, user, pass);
+			System.out.println("SQL connection succeed");
+		} catch (Exception ex) {
+			throw ex;
+		}
+	}
 	
 	/**
 	 * 
@@ -22,8 +35,10 @@ public class DBConnector {
 	public boolean isUser(User user) throws SQLException {
 		try {
 			Statement Stmt = connDB.createStatement();
-			ResultSet rs = Stmt.executeQuery("SELECT * FROM users WHERE ID="
-					+ "'" + user.getID() + "'");
+			ResultSet rs = Stmt.executeQuery("SELECT * FROM good_reading.users WHERE username="
+					+ "'" + user.getUserName() + "'");
+			///if you WANT to check string add "'" + user.getUseName() + "'"
+			//if we use int no need to add ///
 			if (!(rs.next()))  return false;
 			
 			rs.close();
@@ -46,8 +61,8 @@ public class DBConnector {
 	public boolean checkPassword(User user) throws SQLException {
 		try {
 			Statement Stmt = connDB.createStatement();
-			ResultSet rs = Stmt.executeQuery("SELECT * FROM users WHERE ID="
-					+ user.getID() + " AND Password=" + user.getPassword());
+			ResultSet rs = Stmt.executeQuery("SELECT * FROM good_reading.users WHERE username="
+					+ "'" + user.getUserName() + "'" + " AND Password=" + user.getPassword());
 			if (!(rs.next()))  return false;
 			
 			rs.close();
@@ -68,8 +83,9 @@ public class DBConnector {
 	public boolean isLoggedIn(User user) throws SQLException {
 		try {
 			Statement Stmt = connDB.createStatement();
-			ResultSet rs = Stmt.executeQuery("SELECT * FROM users WHERE ID="
-					+ user.getID() + " AND Status=1");
+			ResultSet rs = Stmt.executeQuery("SELECT * FROM users WHERE username="
+					+ "'"
+					+ user.getUserName() + "'"+ " AND Status=1");
 			if (!(rs.next())) return false;
 			
 			rs.close();
@@ -91,8 +107,8 @@ public class DBConnector {
 	public void markAsLoggedIn(User user) throws SQLException {
 		try {
 			Statement Stmt = connDB.createStatement();
-			Stmt.executeUpdate("UPDATE users SET Status=1 WHERE ID="
-					+ user.getID());
+			Stmt.executeUpdate("UPDATE users SET Status=1 WHERE username="+ "'"
+					+ user.getUserName()+ "'");
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}

@@ -72,7 +72,7 @@ public class ServerUI extends JFrame {
 		textFieldDBName.setFont(new Font("Palatino Linotype", Font.BOLD
 				| Font.ITALIC, 13));
 		textFieldDBName.setBounds(171, 34, 186, 20);
-		textFieldDBName.setText("ghealth");
+		textFieldDBName.setText("good_reading");
 		contentPane.add(textFieldDBName);
 		textFieldDBName.setColumns(10);
 

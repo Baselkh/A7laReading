@@ -1,11 +1,17 @@
 package client.entities;
 
+import java.io.Serializable;
+
 /**
  * @author Basel
  *
  */
-public class User extends Person {
+public class User extends Person implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String userName;
 	private String password;
 	private int userType;

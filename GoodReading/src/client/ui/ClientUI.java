@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import GUI.Login;
 import client.controller.Controllers;
 import client.entities.Person;
 
@@ -85,7 +87,7 @@ public class ClientUI extends JFrame {
 						Integer.valueOf(port.getText()));
 				if (rc) {
 					setNotification("Connection to server succeeded.");
-				//	Login.getInstance();
+					Login.getInstance();
 					setUnvisible();
 
 				} else {
