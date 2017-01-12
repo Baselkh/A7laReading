@@ -33,6 +33,7 @@ public class Login {
 	private JLabel lblId;
 	private JButton btnOk;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -123,6 +124,7 @@ public class Login {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+			
 			//	if(((textFieldID.getText())!="") &&((passwordField.getText())!="") ){
 				
 				User user = new User(textFieldID.getText(), passwordField.getText());
@@ -184,11 +186,13 @@ public class Login {
 		btnOk.setBounds(520, 259, 89, 23);
 		frame.getContentPane().add(btnOk);
 		
+	
 		
 		
 
 		//Image imgok = new ImageIcon(this.getClass().getResource("/ok.png")).getImage();
 		//btnLogin.setIcon(new ImageIcon(imgok));
 		
-	}
-}
+	}}
+
+	

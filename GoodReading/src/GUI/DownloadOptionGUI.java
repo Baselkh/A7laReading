@@ -10,11 +10,12 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import javax.swing.AbstractButton;
 public class DownloadOptionGUI {
 
 	private JFrame frame;
 	private JFrame frame1;
+	private  int flag=0; 
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
@@ -67,11 +68,22 @@ public class DownloadOptionGUI {
 		springLayout.putConstraint(SpringLayout.NORTH, rdbtnFb, 6, SpringLayout.SOUTH, rdbtnDoc);
 		springLayout.putConstraint(SpringLayout.EAST, rdbtnFb, 0, SpringLayout.EAST, rdbtnPdf);
 		frame.getContentPane().add(rdbtnFb);
+
+	    ActionListener sliceActionListener = new ActionListener() {
+	      public void actionPerformed(ActionEvent actionEvent) {
+	        AbstractButton aButton = (AbstractButton) actionEvent.getSource();
+	        	flag=1;
+	     
+	      }
+	    };
+	    rdbtnPdf.addActionListener(sliceActionListener);
+	    rdbtnDoc.addActionListener(sliceActionListener);
+	    rdbtnFb.addActionListener(sliceActionListener);
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource()==btnNewButton){
+				if (e.getSource()==btnNewButton&& flag==1){
 					frame.dispose();
 					PaymentOptionGUI payOp = new PaymentOptionGUI();
 					payOp.setVisible(true);

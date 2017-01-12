@@ -9,5 +9,6 @@ package client.controller;
  */
 public enum ControllerType {
 	LOGIN_CONTROLLER,
-	LIBRARY_MANAGER_CONTROLLER;
+	LIBRARY_MANAGER_CONTROLLER,
+ADD_FEEDBACK_CONTROLLER; 
 }
