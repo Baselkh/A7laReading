@@ -9,7 +9,7 @@ import client.entities.User;
 
 /**
  * 
- * @author Sahar
+ * @author 
  *
  */
 public class LoginResponse implements Message {

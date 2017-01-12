@@ -27,8 +27,8 @@ public class HandlerFactory {
 			return new LoginRequestHandler(dbCon);
 //		case LOGOUT_REQUEST:
 //			return new LogoutRequestHandler(dbCon);
-//		case PATIENTCARD_REQUEST:
-//			return new PatientCardRequestHandler(dbCon);
+		case SEARCH_REQUEST:
+			return new SearchHandler(dbCon);
 //		case FILLNEWPATIENTCARD_REQUEST:
 //			return new FillNewPatientCardRequestHandler(dbCon);
 //		case LABORATORYREFERRAL_REQUEST:

@@ -5,9 +5,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
-
+import client.entities.Book;
 import client.entities.User;
+import protocol.request.SearchRequest;
 
 public class DBConnector {
 	public Connection connDB;
@@ -127,11 +129,8 @@ public class DBConnector {
 		try {
 			Statement stmt = connDB.createStatement();
 			User currUser = new User(user.getID(), user.getPassword());
-			ResultSet rs = stmt
-					.executeQuery("SELECT Name,Type,UserNumber,Email,OA FROM users WHERE ID = "
-							+ user.getID());
+			ResultSet rs = stmt.executeQuery("SELECT Name,Type,UserNumber,Email,OA FROM users WHERE ID = "+ user.getID());
 			rs.first();
-			
 			currUser.fillDetails(rs.getString(1), rs.getString(1), rs.getInt(2), rs.getInt(3),rs.getString(4), rs.getString(5));
 			rs.close();
 			return currUser;
@@ -141,6 +140,31 @@ public class DBConnector {
 		}
 	}
 
+	public ArrayList<Book> booksearch(Book book)
+	{
+		
+		try {
+			Statement stmt = connDB.createStatement();
+			Book book1 = new Book(book.getBookID(),book.getTitle(),book.getLanguage(),book.getAuthor());
+			
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Book WHERE BookID = "+book1.getBookID()+" Title= "+book1.getTitle()+" Language= "+book1.getLanguage());
+			rs.first();
+			ArrayList<Book> books=new ArrayList<Book>();
+			 book1.createArrayList();
+			while(rs.next())
+			{
+				Book book2=new Book(rs.getString(1),rs.getString(2), rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8));
+				books.add(book2);
+			}
+			
+			return books;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	
+	}
 	
 }

@@ -2,6 +2,8 @@ package messages;
 
 import java.io.Serializable;
 
+import client.entities.Book;
+
 /**
  * @author ψεπο
  *
@@ -14,4 +16,6 @@ public interface Message extends Serializable{
 	 * @return
 	 */
 	public MessageType getMessageType();
+
+	
 }
