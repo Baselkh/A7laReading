@@ -11,11 +11,17 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+<<<<<<< HEAD
+import javax.swing.AbstractButton;
+public class DownloadOptionGUI {
+=======
 
 public class DownloadOptionGUI extends JFrame{
+>>>>>>> 8438a25cbf298804150d8ebae608376aee029834
 
 	private JFrame frame;
 	private JFrame frame1;
+	private  int flag=0; 
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private static DownloadOptionGUI INSTANCE2=null;
 	private int flag =0;
@@ -58,6 +64,20 @@ public class DownloadOptionGUI extends JFrame{
 		buttonGroup.add(rdbtnFb);
 		springLayout.putConstraint(SpringLayout.NORTH, rdbtnFb, 6, SpringLayout.SOUTH, rdbtnDoc);
 		springLayout.putConstraint(SpringLayout.EAST, rdbtnFb, 0, SpringLayout.EAST, rdbtnPdf);
+<<<<<<< HEAD
+		frame.getContentPane().add(rdbtnFb);
+
+	    ActionListener sliceActionListener = new ActionListener() {
+	      public void actionPerformed(ActionEvent actionEvent) {
+	        AbstractButton aButton = (AbstractButton) actionEvent.getSource();
+	        	flag=1;
+	     
+	      }
+	    };
+	    rdbtnPdf.addActionListener(sliceActionListener);
+	    rdbtnDoc.addActionListener(sliceActionListener);
+	    rdbtnFb.addActionListener(sliceActionListener);
+=======
 		getContentPane().add(rdbtnFb);
 		ActionListener sliceActionListener=new ActionListener()
 				{
@@ -71,16 +91,25 @@ public class DownloadOptionGUI extends JFrame{
 				rdbtnPdf.addActionListener(sliceActionListener);
 				rdbtnDoc.addActionListener(sliceActionListener);
 				rdbtnFb.addActionListener(sliceActionListener);
+>>>>>>> 8438a25cbf298804150d8ebae608376aee029834
 		
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
+				if (e.getSource()==btnNewButton&& flag==1){
+					frame.dispose();
+					PaymentOptionGUI payOp = new PaymentOptionGUI();
+					payOp.setVisible(true);
+				
+=======
 				if(flag==1){
 				frame.setVisible(false);
 				frame=PaymentOptionGUI.getInstance();
 				frame.setBounds(100, 100, 450, 300);
 				frame.setVisible(true);
 				}
+>>>>>>> 8438a25cbf298804150d8ebae608376aee029834
 					
 				}
 				

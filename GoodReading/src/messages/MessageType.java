@@ -12,6 +12,10 @@ public enum MessageType {
 	LOGOUT_RESPONSE,
 
 	REPORTS_RESPONSE,
+	REPORTS_REQUEST
+=======
+<<<<<<< HEAD
+	REPORTS_RESPONSE,
 	REPORTS_REQUEST,
 	SEARCH_RESPONSE,
 	SEARCH_REQUEST,
@@ -20,5 +24,10 @@ public enum MessageType {
 	REPORTS_User_RESPONCE,
 	REPORTS_Book_REQUEST, 
 	REPORTS_Book_RESPONCE,
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
+>>>>>>> 8438a25cbf298804150d8ebae608376aee029834
+>>>>>>> origin/master
 }

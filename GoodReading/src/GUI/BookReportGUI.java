@@ -12,15 +12,6 @@ import javax.swing.JButton;
 public class BookReportGUI extends JFrame {
 	private static BookReportGUI INSTANCE=null;
 	private JFrame frame;
-    private String Bookid;
-    
-	public String getBookid() {
-		return Bookid;
-	}
-
-	public void setBookid(String bookid) {
-		Bookid = bookid;
-	}
 
 	/**
 	 * Launch the application.
@@ -57,7 +48,6 @@ public class BookReportGUI extends JFrame {
 		springLayout.putConstraint(SpringLayout.NORTH, btnBannejeje, 85, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, btnBannejeje, 80, SpringLayout.WEST, getContentPane());
 		getContentPane().add(btnBannejeje);
-		
 		
 		JButton btnBack = new JButton("back");
 		springLayout.putConstraint(SpringLayout.WEST, btnBack, 0, SpringLayout.WEST, getContentPane());

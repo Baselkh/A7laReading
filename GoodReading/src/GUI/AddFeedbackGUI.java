@@ -14,6 +14,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.SpringLayout;
+
+import client.controller.AddFeedbackController;
+import client.controller.ControllerType;
+import client.controller.Controllers;
+import client.controller.LoginController;
+import client.entities.User;
+import client.ui.ClientUI;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -92,8 +100,17 @@ public class AddFeedbackGUI extends JFrame {
 						if(signature.equals("")&&feedback.equals("")){
 							JOptionPane.showMessageDialog(null," please add your signature and your feedback");
 						}
+						else{
+							
+							AddFeedbackController sendfeedback = (AddFeedbackController) Controllers
+									.getInstance().getController(ControllerType.ADD_FEEDBACK_CONTROLLER);
+						
+		                    sendfeedback.AddFeedback(ClientUI.currUser.getUserName(),ClientUI.currUser.getID(),feedback,signature);
+							
+						}
 					}
 				}
+				
 				
 	
 			}

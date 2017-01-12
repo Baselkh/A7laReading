@@ -49,7 +49,7 @@ public class Handlers {
 	public AbstractRequestHandler getHandler(MessageType msg) {
 		AbstractRequestHandler handler = handlers.get(msg);
 		if (handler == null) {
-			handler = HandlerFactory.create(msg, dbCon);
+		//	handler = HandlerFactory.create(msg, dbCon);
 			handlers.put(msg, handler);
 		}
 		return handler;

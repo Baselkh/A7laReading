@@ -1,60 +1,33 @@
 package GUI;
-
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import javax.swing.SwingConstants;
 
 //import GUI.FolderElement;
+=======
+>>>>>>> origin/master
 
 /**
  * @author Basel
  *
  */
-public class CategoriesGUI extends JFrame {
+public class CategoriesGUI extends JFrame implements ActionListener {
 
-	private JButton createCategoryButton;
-	private JButton deleteCategoryButton;
-	private JButton renameCategoryButton;
-	private BufferedImage folderIcon;
-	private ArrayList<String> categoriesName;
-	private MouseAdapter mouseClickListener;
+	private JButton editCategoriesButton;
 	
 	public CategoriesGUI(){
-		super("Categories");
-		Container pane= getContentPane();
-		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+		JFrame frame = new JFrame("Edit Categories");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+		editCategoriesButton= new JButton("Edit Categories");
+		editCategoriesButton.addActionListener(this);
 		
-		// Initializing buttons
-		createCategoryButton= new JButton("Create Category");
-		deleteCategoryButton= new JButton("Delete Category");
-		renameCategoryButton= new JButton("Rename Category");
-		
-		// Adding buttons
-		JPanel buttonsPanel= new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));	// Panel for containing buttons
-		buttonsPanel.add(createCategoryButton);
-		buttonsPanel.add(deleteCategoryButton);
-		buttonsPanel.add(renameCategoryButton);
-		pane.add(buttonsPanel);
-		
-		
+<<<<<<< HEAD
 		// Categories icons layout
 		JPanel iconsPanel= new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
 		try{	// Initializing the pointer to the icon
@@ -116,6 +89,23 @@ public class CategoriesGUI extends JFrame {
 			//	JOptionPane.showMessageDialog(null, categoryName+" is pressed");
 			}
 		};
+=======
+		JPanel panel= new JPanel();
+		panel.add(editCategoriesButton);
+
+		frame.add(panel);
+
+//		Display the window
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(editCategoriesButton)){
+			new EditCategoriesGUI();
+		}
+>>>>>>> origin/master
 	}
 	
 	public static void main(String args[]){
