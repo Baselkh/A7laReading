@@ -9,5 +9,7 @@ package client.controller;
  */
 public enum ControllerType {
 	LOGIN_CONTROLLER,
-	LIBRARY_MANAGER_CONTROLLER;
+	LIBRARY_MANAGER_CONTROLLER,
+	SEARCH_BOOK_CONTROLLER;
+	
 }

@@ -2,6 +2,7 @@ package protocol.request;
 
 import messages.Message;
 import messages.MessageType;
+import client.entities.Book;
 import client.entities.User;
 
 public class LoginRequest implements Message {
@@ -36,5 +37,7 @@ public class LoginRequest implements Message {
 	public MessageType getMessageType() {
 		return MessageType.LOGIN_REQUEST;
 	}
+
+	
 
 }

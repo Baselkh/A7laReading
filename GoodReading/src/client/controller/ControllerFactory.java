@@ -17,7 +17,9 @@ public class ControllerFactory {
 			return new LoginController(client);
 		case LIBRARY_MANAGER_CONTROLLER:
 			return new LibraryManagerController(client);
-
+		case SEARCH_BOOK_CONTROLLER:
+			return new SearchController(client);
+			
 //		case LABREFFERAL_CONTROLLER:
 //			return new LabRefferalController(client);
 //		case REPORTS_CONTROLLER:
