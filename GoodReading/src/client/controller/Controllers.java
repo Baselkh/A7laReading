@@ -8,53 +8,26 @@ import java.util.Map;
 
 import client.ui.Client;
 
-/**
- * @author wardm
- *
- */
-public class Controllers {
+public class Controllers {	// In newInstance(Client client), I removed one if statement
 
-	/**
-	 * Singleton instance
-	 */
 	private static Controllers instance;
 
-	/**
-	 * Client instance
-	 */
 	private Client client;
+	private Map<ControllerType, AbstractController> controllers;
 
-	/**
-	 * Ctor
-	 * 
-	 * @param client
-	 */
 	private Controllers(Client client) {
 		super();
 		this.client = client;
 		controllers = new HashMap<ControllerType, AbstractController>();
 	}
 
-	/**
-	 * Create new instance
-	 * 
-	 * @param client
-	 * @return
-	 */
 	public synchronized static Controllers newInstance(Client client) {
 		if (instance == null) {
-			if (instance == null) {
-				instance = new Controllers(client);
-			}
+			instance = new Controllers(client);
 		}
 		return instance;
 	}
 
-	/**
-	 * Get Instance
-	 * 
-	 * @return
-	 */
 	public static Controllers getInstance() {
 		if (instance == null) {
 			System.out.println("ERROR: Controller instance not found");
@@ -62,17 +35,6 @@ public class Controllers {
 		return instance;
 	}
 
-	/**
-	 * Controllers Container
-	 */
-	private Map<ControllerType, AbstractController> controllers;
-
-	/**
-	 * GetController
-	 * 
-	 * @param controllerType
-	 * @return
-	 */
 	public AbstractController getController(ControllerType controllerType) {
 		AbstractController controller = controllers.get(controllerType);
 		if (controller == null) {
@@ -81,5 +43,4 @@ public class Controllers {
 		}
 		return controller;
 	}
-
 }

@@ -7,7 +7,7 @@ public class ReportBookResponse implements Message {
 
 	@Override
 	public MessageType getMessageType() {
-		return MessageType.REPORTS_Book_RESPONCE;
+		return MessageType.REPORTS_Book_RESPONSE;
 	}
 
 }

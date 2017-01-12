@@ -22,7 +22,7 @@ public class ReportUserResponse implements Message {
 	@Override
 	public MessageType getMessageType() {
 		// TODO Auto-generated method stub
-		return MessageType.REPORTS_User_RESPONCE;
+		return MessageType.REPORTS_User_RESPONSE;
 	}
 
 	public ArrayList<Purchases> getPurchases() {

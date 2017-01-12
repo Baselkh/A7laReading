@@ -10,10 +10,6 @@ import protocol.request.LoginRequest;
 import protocol.response.LoginResponse;
 import server.db.DBConnector;
 
-/**
- * @author bayan
- *
- */
 public class LoginRequestHandler extends AbstractRequestHandler {
 
 	/**

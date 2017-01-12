@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
 
 import client.entities.User;
 
@@ -140,7 +140,21 @@ public class DBConnector {
 			return null;
 		}
 	}
-
 	
-	
+	public ArrayList<String> getSubjectsInCategory(String categoryName){
+		try {
+			Statement st = connDB.createStatement();
+			ResultSet rs = st
+					.executeQuery("SELEECT SubjectName FROM subjects WHERE Category="+categoryName+";");
+			ArrayList<String> arr= new ArrayList<String>();
+			while(rs.next())
+				arr.add(rs.getString(1));
+			rs.close();
+			return arr;
+		}
+		catch (SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }

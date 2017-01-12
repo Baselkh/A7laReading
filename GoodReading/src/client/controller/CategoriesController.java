@@ -1,17 +1,22 @@
 package client.controller;
 import client.entities.Category;
+import client.ui.Client;
+import protocol.request.SubjectsInCategoryRequest;
+import protocol.response.SubjectsInCategoryResponse;
 
 /**
  * @author Basel
  *
  */
-public class CategoriesController {
+public class CategoriesController extends AbstractController {
 
-	Category category;
+	public CategoriesController(Client client){
+		super(client);
+	}
 	
-
-	public CategoriesController(String categoryName){
-		category= new Category(categoryName);
+	public SubjectsInCategoryResponse getCategorySubjects(String categoryName){
+		SubjectsInCategoryRequest message= new SubjectsInCategoryRequest(categoryName);
+		return (SubjectsInCategoryResponse) client.sendMessage(message);
 	}
 	
 	public void createCategory(String categoryName){
@@ -28,13 +33,5 @@ public class CategoriesController {
 	
 	private void printMessage(boolean result){
 		
-	}
-	
-	public Category getCategory() {
-		return category;
-	}
-	
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 }

@@ -22,7 +22,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.oracle.jrockit.jfr.ContentType;
+
 import GUI.FolderElement;
+import client.controller.CategoriesController;
+import client.controller.ControllerType;
+import client.controller.Controllers;
+import protocol.response.SubjectsInCategoryResponse;
 
 /**
  * @author Basel
@@ -113,7 +119,10 @@ public class CategoriesGUI extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				String categoryName= ((FolderElement)e.getSource()).getName();
-				JOptionPane.showMessageDialog(null, categoryName+" is pressed");
+//				JOptionPane.showMessageDialog(null, categoryName+" is pressed");
+				CategoriesController controller= (CategoriesController) 
+						Controllers.getInstance().getController(ControllerType.CATEGORY_CONTROLLER);
+				SubjectsInCategoryResponse response= controller.getCategorySubjects(categoryName);
 			}
 		};
 	}

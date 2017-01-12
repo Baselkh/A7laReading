@@ -3,12 +3,9 @@
  */
 package client.controller;
 
-/**
- * @author sahar 
- * This enum specifies the type of controllers 
- */
 public enum ControllerType {
 	LOGIN_CONTROLLER,
 	LIBRARY_MANAGER_CONTROLLER,
-	Report_CONTROLLER;
+	Report_CONTROLLER,
+	CATEGORY_CONTROLLER;
 }
