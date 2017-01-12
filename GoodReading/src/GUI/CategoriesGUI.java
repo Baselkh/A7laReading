@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import GUI.FolderElement;
+//import GUI.FolderElement;
 
 /**
  * @author Basel
@@ -64,7 +64,7 @@ public class CategoriesGUI extends JFrame {
 		readCategoriesNames();	// Getting categories names
 		createFolderClickListener();
 		for(String s: categoriesName){
-			iconsPanel.add(makeFolderIcon(s));
+		//	iconsPanel.add(makeFolderIcon(s));
 		}
 		pane.add(iconsPanel);
 		
@@ -73,12 +73,12 @@ public class CategoriesGUI extends JFrame {
 		setVisible(true);
 	}
 	
-	private FolderElement makeFolderIcon(String categoryName){
+	/*private FolderElement makeFolderIcon(String categoryName){
 		FolderElement folder= new FolderElement(categoryName, folderIcon);
 		
 		folder.addMouseListener(mouseClickListener);
 		return folder;
-	}
+	}*/
 	
 	private void readCategoriesNames(){
 		categoriesName= new ArrayList<String>();
@@ -112,8 +112,8 @@ public class CategoriesGUI extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				String categoryName= ((FolderElement)e.getSource()).getName();
-				JOptionPane.showMessageDialog(null, categoryName+" is pressed");
+				//String categoryName= ((FolderElement)e.getSource()).getName();
+			//	JOptionPane.showMessageDialog(null, categoryName+" is pressed");
 			}
 		};
 	}

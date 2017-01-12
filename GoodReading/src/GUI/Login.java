@@ -172,7 +172,7 @@ public class Login {
 				
 				case 1://user
 				{
-
+					
 					
 					}
 				case 2://member

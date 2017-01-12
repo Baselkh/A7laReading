@@ -2,7 +2,7 @@ package client.controller;
 
 import client.entities.User;
 import client.ui.Client;
-import protocol.request.ReportUserRequest;
+//import protocol.request.ReportUserRequest;
 
 public class LibraryManagerController extends AbstractController{
 
