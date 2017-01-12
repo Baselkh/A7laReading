@@ -50,24 +50,24 @@ public class Server extends AbstractServer {
 	public boolean connectToDB(String host, String user, String pass) {
 		dbCon = new DBConnector();
 		try {
-		//	dbCon.connect(host, user, pass);
+			dbCon.connect(host, user, pass);
 			handlers = new Handlers(dbCon);
 			//AutoSendMail autoSendMail=new AutoSendMail(dbCon);
-			Timer mailTime = new Timer();
-			Date mailDate=new Date();
-			mailDate.setHours(8);
-			mailDate.setMinutes(0);
+			//Timer mailTime = new Timer();
+//			Date mailDate=new Date();
+//			mailDate.setHours(8);
+//			mailDate.setMinutes(0);
 			//mailTime.schedule(autoSendMail, mailDate,100*60*60*24 );
 			//AutoGenerateReport auto = new AutoGenerateReport(dbCon);
-			Timer timer = new Timer();
-			Date date = new Date();
-			LocalDate date1 = LocalDate.now();
-			while(date1.getDayOfWeek()!= DayOfWeek.SUNDAY){
-				date1=date1.plusDays(1);
-			}
-			date.setDate(date1.getDayOfMonth());
-			date.setHours(00);
-			date.setMinutes(01);
+//			Timer timer = new Timer();
+//			Date date = new Date();
+//			LocalDate date1 = LocalDate.now();
+//			while(date1.getDayOfWeek()!= DayOfWeek.SUNDAY){
+//				date1=date1.plusDays(1);
+//			}
+//			date.setDate(date1.getDayOfMonth());
+//			date.setHours(00);
+//			date.setMinutes(01);
 			// Schedule to run every Sunday in midnight
 			//timer.schedule(auto, date, 1000 * 60 * 60 * 24 * 7);
 			return true;

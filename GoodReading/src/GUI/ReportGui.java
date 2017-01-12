@@ -1,7 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
@@ -20,6 +18,10 @@ import java.awt.SystemColor;
 
 public class ReportGui extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame frame;
 	private JTextField txtInsertUserId;
 	private JTextField txtInsertBookId;
@@ -53,9 +55,11 @@ public class ReportGui extends JFrame {
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			    setVisible(false);
-				frame=BookReportGUI.getInstance();
-				frame.setBounds(100, 100, 450, 300);
-				frame.setVisible(true);
+			    BookReportGUI frame1;
+				frame1=BookReportGUI.getInstance();
+				frame1.setBookid(txtInsertBookId.getText());
+				frame1.setBounds(100, 100, 450, 300);
+				frame1.setVisible(true);
 			}
 		});
 		
@@ -115,9 +119,10 @@ public class ReportGui extends JFrame {
 		springLayout.putConstraint(SpringLayout.SOUTH, btnBack_1, -10, SpringLayout.SOUTH, getContentPane());
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			setVisible(false);	
-			LibraryManagerGUI.main(null);
-			
+				setVisible(false);
+				frame=LibraryManagerGUI.getInstance();
+				frame.setBounds(100, 100, 450, 300);
+				frame.setVisible(true);
 				
 			}
 		});

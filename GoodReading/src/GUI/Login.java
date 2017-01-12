@@ -3,10 +3,15 @@ package GUI;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.SpringLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import client.controller.ControllerType;
 import client.controller.Controllers;
@@ -14,14 +19,6 @@ import client.controller.LoginController;
 import client.entities.User;
 import client.ui.ClientUI;
 import protocol.response.LoginResponse;
-
-import javax.swing.JTextField;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Login {
 
@@ -32,6 +29,7 @@ public class Login {
 	private JLabel lblPleaseLogin;
 	private JLabel lblId;
 	private JButton btnOk;
+	private static Login INSTANCE = null;
 
 	/**
 	 * Launch the application.
@@ -56,6 +54,31 @@ public class Login {
 		initialize();
 	}
 
+	private void display() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		initialize();
+	}
+	
+	/**
+	 * This function check if there is an instance for the form, if no , create
+	 * it else, return the INSTANCE
+	 */
+	public static Login getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new Login();
+		}
+		INSTANCE.display();
+		return INSTANCE;
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -113,21 +136,69 @@ public class Login {
 		 * Creating and designing the "ID" Label
 		 */
 		
-		lblId = new JLabel("ID:");
+		lblId = new JLabel("Username:");
 		lblId.setFont(new Font("Segoe Print", Font.BOLD, 12));
 		lblId.setBounds(361, 161, 61, 24);
 		frame.getContentPane().add(lblId);
 		
 		btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				
+				if (passwordField.getText().equals("")&&!(textFieldID.getText().equals("")))
+					JOptionPane.showMessageDialog(null," please enter your Password");
+				else{
+					if(textFieldID.getText().equals("")&&!(passwordField.getText().equals("")))
+						JOptionPane.showMessageDialog(null," please enter your ID");
+					else{
+						if(textFieldID.getText().equals("")&&passwordField.getText().equals("")){
+							JOptionPane.showMessageDialog(null," please enter your ID and your Password");
+						}
+					}
+					}
+				
 				User user = new User(textFieldID.getText(), passwordField.getText());
 				LoginController login = (LoginController) Controllers
 						.getInstance().getController(ControllerType.LOGIN_CONTROLLER);
 				LoginResponse resp = login.checkLoginDetailsFromGUI(user);
+				
 				if(resp.getText().equals("OK"))
 				{
-				////login menu is here 
+				ClientUI.currUser=resp.getUser();
+				int type=ClientUI.currUser.getUserType();
+				
+				switch(type){
+				
+				case 1://user
+				{
+
+					
+					}
+				case 2://member
+				{
+
+					
+					}
+				case 3://Certified editor
+				{
+
+					
+					}
+				case 4://liberian
+				{
+
+					
+					}
+				
+				case 5://library manager
+				{
+
+					frame=LibraryManagerGUI.getInstance();
+					frame.setBounds(100, 100, 450, 300);
+					frame.setVisible(true);
+					}
+				}
 				
 					
 				}
@@ -139,6 +210,7 @@ public class Login {
 					frame.getContentPane().add(lblStatus);
 					
 				}
+				
 			}
 		});
 		

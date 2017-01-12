@@ -46,7 +46,10 @@ public class CheckFeedbackGui extends JFrame{
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 setVisible(false);	
-					LibraryManagerGUI.main(null);
+					setVisible(false);
+					frame=LibraryManagerGUI.getInstance();
+					frame.setBounds(100, 100, 450, 300);
+					frame.setVisible(true);
 			}
 		});
 		springLayout.putConstraint(SpringLayout.WEST, btnBack_1, 0, SpringLayout.WEST, getContentPane());

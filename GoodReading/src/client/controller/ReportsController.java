@@ -1,15 +1,20 @@
 package client.controller;
 
-public class ReportsController {
+import client.ui.Client;
 
-	public ReportsController(){}
+public class ReportsController extends AbstractController {
+	
+
+	public ReportsController(Client cl){
+		super(cl);
+	}
 	
 	public enum report{BOOK_SEARCHES_REPORT, BOOK_DOWNLOADS_REPORT}
 	
 	public void viewUserReport(String userID){}
 	
-	// חסר פרמטר שמגדיר באיזה אופן להוריד את הספר
-	public void viewBookReport(String bookID,int  Year){}
+	
+	public void viewBookReport(String bookID){}
 	
 	
 }

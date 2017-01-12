@@ -30,6 +30,7 @@ import java.util.*;
 * @author Paul Holden
 * @version February 2001 (2.12)
 */
+@SuppressWarnings("unused")
 public abstract class AbstractClient implements Runnable
 {
 
